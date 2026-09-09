@@ -106,6 +106,7 @@ class Library {
   }
 }
 
+
 class Student {
   constructor(name) {
     this.name = name;
@@ -152,3 +153,83 @@ class Student {
     return sum / subjects.length;
   }
 }
+
+
+// Тестовый сценарий для задачи «Библиотека»
+
+const library = new Library("Библиотека имени Ленина");
+
+library.addBook(
+  new DetectiveBook(
+    "Артур Конан Дойл",
+    "Полное собрание рассказов о Шерлоке Холмсе",
+    2019,
+    1008
+  )
+);
+
+library.addBook(
+  new FantasticBook(
+    "Аркадий и Борис Стругацкие",
+    "Пикник на обочине",
+    1972,
+    168
+  )
+);
+
+library.addBook(
+  new NovelBook(
+    "Герберт Уэллс",
+    "Машина времени",
+    1919,
+    138
+  )
+);
+
+library.addBook(
+  new Magazine(
+    "Мурзилка",
+    1924,
+    60
+  )
+);
+
+
+// Находим книгу 1919 года
+
+const book1919 = library.findBookBy(
+  "releaseDate",
+  1919
+);
+
+console.log(book1919);
+
+
+// Выдаём книгу
+
+const givenBook = library.giveBookByName(
+  "Машина времени"
+);
+
+console.log(givenBook);
+
+
+// Повреждаем книгу
+
+givenBook.state = 40;
+
+console.log(givenBook.state);
+
+
+// Восстанавливаем книгу
+
+givenBook.fix();
+
+console.log(givenBook.state);
+
+
+// Возвращаем книгу обратно в библиотеку
+
+library.addBook(givenBook);
+
+console.log(library.books);
