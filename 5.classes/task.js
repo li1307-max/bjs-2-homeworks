@@ -155,7 +155,6 @@ class Student {
 }
 
 
-// Тестовый сценарий для задачи «Библиотека»
 
 const library = new Library("Библиотека имени Ленина");
 
@@ -195,7 +194,6 @@ library.addBook(
 );
 
 
-// Находим книгу 1919 года
 
 const book1919 = library.findBookBy(
   "releaseDate",
@@ -205,7 +203,6 @@ const book1919 = library.findBookBy(
 console.log(book1919);
 
 
-// Выдаём книгу
 
 const givenBook = library.giveBookByName(
   "Машина времени"
@@ -214,21 +211,18 @@ const givenBook = library.giveBookByName(
 console.log(givenBook);
 
 
-// Повреждаем книгу
 
 givenBook.state = 40;
 
 console.log(givenBook.state);
 
 
-// Восстанавливаем книгу
 
 givenBook.fix();
 
 console.log(givenBook.state);
 
 
-// Возвращаем книгу обратно в библиотеку
 
 library.addBook(givenBook);
 
